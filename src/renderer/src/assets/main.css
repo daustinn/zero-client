@@ -1,0 +1,13 @@
+@import './base.css';
+
+.monaco-editor .scroll-decoration {
+  box-shadow: none !important;
+}
+
+.monaco-editor .sticky-widget {
+  box-shadow: none !important;
+}
+
+.monaco-editor .minimap-shadow-visible {
+  box-shadow: none !important;
+}
