@@ -27,12 +27,12 @@ app.whenReady().then(() => {
   // Check before to 5 seconds
   setTimeout(() => autoUpdater.checkForUpdates(), 5000)
 
-  // Check every hour
+  // Check every 5 minutes
   setInterval(
     () => {
       autoUpdater.checkForUpdates()
     },
-    60 * 60 * 1000
+    5 * 60 * 1000 // 5 minutes
   )
 
   // Handlers
