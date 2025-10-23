@@ -16,4 +16,6 @@ export default function createStartWindow() {
   windowsStore.register(winId, win)
 
   loadPage(win, '/')
+
+  return win
 }

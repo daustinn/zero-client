@@ -19,7 +19,8 @@
     "build:win": "npm run build && electron-builder --win",
     "build:mac": "electron-vite build && electron-builder --mac",
     "build:linux": "electron-vite build && electron-builder --linux",
-    "release": "electron-builder --publish always"
+    "release": "electron-builder --publish always",
+    "release:local": "dotenv -e .env.local electron-builder --publish always"
   },
   "dependencies": {
     "@electron-toolkit/preload": "^3.0.2",
@@ -42,7 +43,8 @@
     "clsx": "^2.1.1",
     "cmdk": "^1.1.1",
     "dayjs": "^1.11.18",
-    "electron-updater": "^6.3.9",
+    "electron-log": "^5.4.3",
+    "electron-updater": "^6.6.2",
     "monaco-sql-languages": "^0.15.1",
     "mysql2": "^3.15.2",
     "nanoid": "^5.1.6",
@@ -62,6 +64,7 @@
     "@types/react": "^19.1.13",
     "@types/react-dom": "^19.1.9",
     "@vitejs/plugin-react": "^5.0.3",
+    "dotenv-cli": "^10.0.0",
     "electron": "^38.1.2",
     "electron-builder": "^25.1.8",
     "electron-vite": "^4.0.1",

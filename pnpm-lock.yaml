@@ -68,8 +68,11 @@ importers:
       dayjs:
         specifier: ^1.11.18
         version: 1.11.18
+      electron-log:
+        specifier: ^5.4.3
+        version: 5.4.3
       electron-updater:
-        specifier: ^6.3.9
+        specifier: ^6.6.2
         version: 6.6.2
       monaco-sql-languages:
         specifier: ^0.15.1
@@ -123,6 +126,9 @@ importers:
       '@vitejs/plugin-react':
         specifier: ^5.0.3
         version: 5.0.4(vite@7.1.10(@types/node@22.18.11)(jiti@2.6.1)(lightningcss@1.30.1))
+      dotenv-cli:
+        specifier: ^10.0.0
+        version: 10.0.0
       electron:
         specifier: ^38.1.2
         version: 38.3.0
@@ -1845,12 +1851,20 @@ packages:
   dompurify@3.1.7:
     resolution: {integrity: sha512-VaTstWtsneJY8xzy7DekmYWEOZcmzIe3Qb3zPd4STve1OBTa+e+WmS1ITQec1fZYXI3HCsOZZiSMpG6oxoWMWQ==}
 
+  dotenv-cli@10.0.0:
+    resolution: {integrity: sha512-lnOnttzfrzkRx2echxJHQRB6vOAMSCzzZg79IxpC00tU42wZPuZkQxNNrrwVAxaQZIIh001l4PxVlCrBxngBzA==}
+    hasBin: true
+
   dotenv-expand@11.0.7:
     resolution: {integrity: sha512-zIHwmZPRshsCdpMDyVsqGmgyP0yT8GAgXUnkdAoJisxvf33k7yO6OuoKmcTGuXPWSsm8Oh88nZicRLA9Y0rUeA==}
     engines: {node: '>=12'}
 
   dotenv@16.6.1:
     resolution: {integrity: sha512-uBq4egWHTcTt33a72vpSG0z3HnPuIl6NqYcTrKEg2azoEyl2hpW0zqlxysq2pK9HlDIHyHyakeYaYnSAwd8bow==}
+    engines: {node: '>=12'}
+
+  dotenv@17.2.3:
+    resolution: {integrity: sha512-JVUnt+DUIzu87TABbhPmNfVdBDt18BLOWjMUFJMSi/Qqg7NTYtabbvSNJGOJ7afbRuv9D/lngizHtP7QyLQ+9w==}
     engines: {node: '>=12'}
 
   dt-sql-parser@4.3.1:
@@ -1876,6 +1890,10 @@ packages:
     resolution: {integrity: sha512-poRgAtUHHOnlzZnc9PK4nzG53xh74wj2Jy7jkTrqZ0MWPoHGh1M2+C//hGeYdA+4K8w4yiVCNYoLXF7ySj2Wig==}
     engines: {node: '>=14.0.0'}
     hasBin: true
+
+  electron-log@5.4.3:
+    resolution: {integrity: sha512-sOUsM3LjZdugatazSQ/XTyNcw8dfvH1SYhXWiJyfYodAAKOZdHs0txPiLDXFzOZbhXgAgshQkshH2ccq0feyLQ==}
+    engines: {node: '>= 14'}
 
   electron-publish@25.1.7:
     resolution: {integrity: sha512-+jbTkR9m39eDBMP4gfbqglDd6UvBC7RLh5Y0MhFSsc6UkGHj9Vj9TWobxevHYMMqmoujL11ZLjfPpMX+Pt6YEg==}
@@ -5550,11 +5568,20 @@ snapshots:
 
   dompurify@3.1.7: {}
 
+  dotenv-cli@10.0.0:
+    dependencies:
+      cross-spawn: 7.0.6
+      dotenv: 17.2.3
+      dotenv-expand: 11.0.7
+      minimist: 1.2.8
+
   dotenv-expand@11.0.7:
     dependencies:
       dotenv: 16.6.1
 
   dotenv@16.6.1: {}
+
+  dotenv@17.2.3: {}
 
   dt-sql-parser@4.3.1(antlr4ng-cli@1.0.7):
     dependencies:
@@ -5602,6 +5629,8 @@ snapshots:
       - bluebird
       - electron-builder-squirrel-windows
       - supports-color
+
+  electron-log@5.4.3: {}
 
   electron-publish@25.1.7:
     dependencies:
