@@ -30,7 +30,10 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
-      - name: Build Electron app
+      - name: Build app with electron-vite
+        run: pnpm run build
+
+      - name: Build & Release Electron app
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: pnpm run release
