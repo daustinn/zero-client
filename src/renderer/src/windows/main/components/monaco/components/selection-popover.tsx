@@ -38,24 +38,24 @@ export default function SelectionPopover({
   }, [editor, handleRun])
 
   return (
-    <div className="bg-background shadow-[0_3px_10px_rgba(0,0,0,.3)] flex border dark:border-stone-300/10 rounded-lg p-0.5">
+    <div className="bg-background shadow-[0_3px_10px_rgba(0,0,0,.3)] flex border dark:border-stone-400/20 rounded-lg p-0.5">
       <Button
         disabled={isRunning}
         variant="transparent"
-        className="text-nowrap !px-2"
+        className="text-nowrap !px-2 h-7"
         onClick={handleRun}
       >
         {isRunning && <Spinner size={14} />}
         <p className="dark:text-stone-200">Run selected</p>
-        <span className="text-xs opacity-50">Ctrl+Enter</span>
+        <span className="text-xs opacity-80 font-medium">Ctrl+Enter</span>
       </Button>
       <Button
         variant="transparent"
-        className="text-nowrap !px-2"
+        className="text-nowrap !px-2 h-7"
         onClick={handleCopy}
       >
         <p className="dark:text-stone-200">Copy </p>
-        <span className="text-xs opacity-50">Ctrl+C</span>
+        <span className="text-xs opacity-80 font-medium">Ctrl+C</span>
       </Button>
     </div>
   )

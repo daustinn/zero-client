@@ -50,7 +50,7 @@ export default function Nav() {
     <>
       <nav
         data-focus={focus ? '' : undefined}
-        className="flex z-[100] [&>*]:transition-[opacity] items-center [&>*]:opacity-40 [&>*]:grayscale data-focus:[&>*]:grayscale-0 data-focus:[&>*]:opacity-100 [&>*]:pointer-events-none data-focus:[&>*]:pointer-events-auto drag dark:text-white border-b dark:border-stone-500/20 px-[5px] h-[34px] min-h-[34px"
+        className="flex z-[100] [&>*]:transition-[opacity] items-center [&>*]:opacity-40 [&>*]:grayscale data-focus:[&>*]:grayscale-0 data-focus:[&>*]:opacity-100 [&>*]:pointer-events-none data-focus:[&>*]:pointer-events-auto drag dark:text-white border-b dark:border-stone-500/20 px-[5px] h-[45px] min-h-[45px]"
       >
         <div className="flex items-center h-full justify-start [&>button]:h-full [&>button]:flex [&>button]:px-2 [&>button]:items-center [&>button]:dark:text-stone-400">
           <Tooltip tooltip="Disconnect">

@@ -16,8 +16,10 @@ import {
   QueryInput,
   TestConnectionRequest,
   WindowConnectionProps,
-  WindowQueriesProps
+  WindowQueriesProps,
+  Unsubscribe
 } from 'src/types'
+import { UpdateInfo, UpdateDownloadedEvent } from 'electron-updater'
 
 export interface WindowWithIpcRenderer {
   id: () => Id
@@ -65,6 +67,12 @@ export interface WindowWithIpcRenderer {
   queriesChange: (winId: string, query: Query) => AwaitableResponse<void>
   queriesChangeCurrent: (query: Query) => AwaitableResponse<void>
   queriesChangeSubscribe: (call: (f: Query) => void) => Unsubscribe
+
+  // Zero updater
+  updaterDownload: () => Promise<Array<string>>
+  updaterInstallRestart: (isSilent?: boolean, isForceRunAfter?: boolean) => void
+  updaterAvailable: (call: (f: UpdateInfo) => void) => Unsubscribe
+  updaterDownloaded: (call: (f: UpdateDownloadedEvent) => void) => Unsubscribe
 
   // Core
   coreTest: (_: TestConnectionRequest) => AwaitableResponse<string>
@@ -114,6 +122,15 @@ export type EventPayloadMapping = {
   'zero:queries:change': [Id, Query]
   'zero:queries:change:subscribe': [(_: Query) => void]
 
+  // Zero updater
+  'zero:updater:download': []
+  'zero:updater:install:restart': [
+    isSilent?: boolean,
+    isForceRunAfter?: boolean
+  ]
+  'zero:updater:available': [(f: UpdateInfo) => void]
+  'zero:updater:downloaded': [(f: UpdateDownloadedEvent) => void]
+
   // Core
   'core:test': [TestConnectionRequest]
   'core:entities': [Id, string, Connection]
@@ -158,6 +175,12 @@ export type IpcReturnTypeMapping = {
   'zero:queries:subscribe': Unsubscribe
   'zero:queries:change': AwaitableResponse<void>
   'zero:queries:change:subscribe': Unsubscribe
+
+  // Zero: Updater
+  'zero:updater:download': Promise<Array<string>>
+  'zero:updater:install:restart': void
+  'zero:updater:available': Unsubscribe
+  'zero:updater:downloaded': Unsubscribe
 
   // Core
   'core:test': AwaitableResponse<string>

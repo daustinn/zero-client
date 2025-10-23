@@ -175,7 +175,7 @@ export default function Editor({
             theme: 'default',
             fontFamily: '_Zero_cascadia',
             fontLigatures: true,
-            fontSize: 13,
+            fontSize: 14,
             suggestLineHeight: 20,
             suggestFontSize: 14,
             minimap: {
@@ -184,42 +184,6 @@ export default function Editor({
           }}
         />
       </div>
-      {/*<Footer editor={editor} onRun={onRunRef.current} />*/}
     </>
   )
 }
-
-// const Footer = ({
-//   editor,
-//   onRun
-// }: {
-//   editor: monaco.editor.IStandaloneCodeEditor | null
-//   onRun: (code: string) => Promise<void>
-// }) => {
-//   const [isRunning, setIsRunning] = React.useState(false)
-
-//   const handleRun = React.useCallback(async () => {
-//     if (!editor) return
-//     setIsRunning(true)
-//     const code = editor.getValue() || ''
-//     if (code.trim()) {
-//       await onRun(code)
-//     }
-//     setIsRunning(false)
-//   }, [onRun, editor])
-
-//   return (
-//     <div className="flex p-1 justify-end">
-//       <Button
-//         disabled={isRunning}
-//         onClick={handleRun}
-//         size="xs"
-//         variant="outline"
-//         className="h-5"
-//       >
-//         {isRunning ? <Spinner size={15} /> : <IconPlayerPlay size={15} />}
-//         Run all
-//       </Button>
-//     </div>
-//   )
-// }

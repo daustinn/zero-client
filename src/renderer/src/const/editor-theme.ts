@@ -44,7 +44,7 @@ export const EditorTheme: editor.IStandaloneThemeData = {
   ],
   colors: {
     'editor.foreground': '#cacaca',
-    'editor.background': '#1a1a1a',
+    'editor.background': '#141414',
     'editor.selectionBackground': '#253a46',
     'editor.lineHighlightBackground': '#1c1c1c',
     'editorCursor.foreground': '#FFFFFF',

@@ -6,6 +6,8 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
+        primary:
+          'bg-yellow-400 hover:bg-yellow-400/95 text-black disabled:!cursor-default not-disabled:hover:bg-primary-600',
         default:
           'dark:border-neutral-500/80 dark:bg-neutral-200/20 disabled:!cursor-default dark:text-neutral-300 not-disabled:hover:dark:text-neutral-100',
         transparent:
@@ -15,7 +17,7 @@ const buttonVariants = cva(
       },
       size: {
         xs: 'h-4 text-xs px-2',
-        sm: 'h-6 text-sm px-3',
+        sm: 'h-6 !text-base px-3',
         lg: 'h-10 text-md px-5'
       }
     },
@@ -29,13 +31,20 @@ const buttonVariants = cva(
 type Props = React.ComponentProps<'button'> &
   VariantProps<typeof buttonVariants>
 
-export default function Button({ className, variant, size, ...props }: Props) {
+export default function Button({
+  className,
+  variant,
+  size,
+  disabled,
+  ...props
+}: Props) {
   return (
     <button
       {...props}
+      disabled={disabled}
       className={buttonVariants({
         className,
-        variant,
+        variant: disabled ? 'transparent' : variant,
         size
       })}
     />

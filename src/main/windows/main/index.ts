@@ -18,7 +18,7 @@ export default function createMainWindow(
     titleBarOverlay: {
       color: '#141414',
       symbolColor: '#8b8b8b',
-      height: 33
+      height: 44
     }
   })
 

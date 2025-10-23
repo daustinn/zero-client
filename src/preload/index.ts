@@ -66,6 +66,17 @@ const api = {
   queriesChangeSubscribe: (call) =>
     ipcOn('zero:queries:change:subscribe', (...data) => call(...data)),
 
+  // Zero updater
+  updaterAvailable: (call) =>
+    // @ts-ignore
+    ipcOn('zero:updater:available', (...data) => call(...data)),
+  updaterDownloaded: (call) =>
+    // @ts-ignore
+    ipcOn('zero:updater:downloaded', (...data) => call(...data)),
+  updaterDownload: (...props) => ipcInvoke('zero:updater:download', ...props),
+  updaterInstallRestart: (...props) =>
+    ipcInvoke('zero:updater:install:restart', ...props),
+
   // Core
   coreTest: (...props) => ipcInvoke('core:test', ...props),
   coreEntities: (...props) => ipcInvoke('core:entities', id, ...props),

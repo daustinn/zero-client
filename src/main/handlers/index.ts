@@ -3,6 +3,7 @@ import { ipcMainHandler } from '../utils'
 import { ZeroClientService } from '../services/zero-client'
 import CoreService from '../services/core'
 import MySQL from '../services/core/mysql'
+import { autoUpdater } from 'electron-updater'
 
 export default function handlers() {
   // Utils
@@ -61,6 +62,15 @@ export default function handlers() {
     return ZeroClientService.changeQuery(...props)
   })
 
+  // Zero Updater
+  ipcMainHandler('zero:updater:download', () => {
+    autoUpdater.downloadUpdate()
+  })
+
+  ipcMainHandler('zero:updater:install:restart', () => {
+    autoUpdater.quitAndInstall()
+  })
+
   // Core
   ipcMainHandler('core:test', async (_, ...props) => {
     return await CoreService.testConnection(...props)
@@ -78,6 +88,4 @@ export default function handlers() {
   //   ipcMainHandler('disconnect', async (_, ...props) => {
   //     return await DatabaseService.disconnect(...props)
   //   })
-
-  // IpcOn
 }

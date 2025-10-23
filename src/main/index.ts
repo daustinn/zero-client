@@ -5,7 +5,8 @@ import Database from './database'
 import handlers from './handlers'
 import dialogs from './handlers/dialogs'
 import windows from './handlers/windows'
-import updater from './updater'
+import { setupUpdaterForRenderer } from './updater'
+import { autoUpdater } from 'electron-updater'
 
 app.whenReady().then(() => {
   electronApp.setAppUserModelId('com.daustinn.zeroclient')
@@ -20,15 +21,16 @@ app.whenReady().then(() => {
   // Create the Start window
   createStartWindow()
 
-  // Verify updates after 5 seconds
-  setTimeout(() => {
-    updater.checkForUpdates()
-  }, 5000)
+  // Create updater
+  setupUpdaterForRenderer()
 
-  // Verify updates every hour
+  // Check before to 5 seconds
+  setTimeout(() => autoUpdater.checkForUpdates(), 5000)
+
+  // Check every hour
   setInterval(
     () => {
-      updater.checkForUpdates()
+      autoUpdater.checkForUpdates()
     },
     60 * 60 * 1000
   )

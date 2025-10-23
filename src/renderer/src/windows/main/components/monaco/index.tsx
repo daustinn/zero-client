@@ -79,7 +79,7 @@ export default function Monaco() {
   return (
     <div
       data-show={showPanel ? '' : undefined}
-      className="grow group/editor bg-secondary-background flex flex-col overflow-auto"
+      className="grow group/editor flex flex-col overflow-auto"
     >
       <Editor
         entities={entities}
