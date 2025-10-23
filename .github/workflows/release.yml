@@ -30,10 +30,20 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
-      - name: Build app with electron-vite
-        run: pnpm run build
-
-      - name: Build & Release Electron app
+      - name: Build for Windows
+        if: matrix.os == 'windows-latest'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: pnpm run release
+        run: pnpm run build:win
+
+      - name: Build for macOS
+        if: matrix.os == 'macos-latest'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: pnpm run build:mac
+
+      - name: Build for Linux
+        if: matrix.os == 'ubuntu-latest'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: pnpm run build:linux
