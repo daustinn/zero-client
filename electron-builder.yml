@@ -1,8 +1,8 @@
 appId: com.daustinn.zeroclient
 productName: Zero Client
 icon: resources/icon.png
-directories:
-  buildResources: build
+# directories:
+#   buildResources: build
 files:
   - '!**/.vscode/*'
   - '!src/*'
