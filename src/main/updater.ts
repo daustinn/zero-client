@@ -7,6 +7,11 @@ import { is } from '@electron-toolkit/utils'
 export function setupUpdaterForRenderer() {
   autoUpdater.logger = log
   autoUpdater.autoDownload = false
+  autoUpdater.allowPrerelease = true
+
+  // const userChannel = getUserPreference()
+
+  // autoUpdater.channel = ''
 
   if (is.dev) {
     autoUpdater.forceDevUpdateConfig = true
